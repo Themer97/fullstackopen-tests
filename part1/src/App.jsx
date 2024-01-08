@@ -8,24 +8,33 @@ const App = () => {
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
 
+  const [all, setAll] = useState(0);
+  const [average, setAverage] = useState(0);
+
   return (
     <div>
       <h1>give feedback</h1>
       <Button
         handleClick={() => {
           setGood(good + 1);
+          setAll(all + 1);
+          setAverage(average + 1);
         }}
         text='good'
       />
       <Button
         handleClick={() => {
           setNeutral(neutral + 1);
+          setAll(all + 1);
+          setAverage(average + 0);
         }}
         text='neutral'
       />
       <Button
         handleClick={() => {
           setBad(bad + 1);
+          setAll(all + 1);
+          setAverage(average - 1);
         }}
         text='bad'
       />
@@ -34,6 +43,9 @@ const App = () => {
       <h3>good {good}</h3>
       <h3>neutral {neutral}</h3>
       <h3>bad {bad}</h3>
+      <h3>all {all}</h3>
+      <h3>average {average}</h3>
+      <h3>positive {(good / all) * 100}%</h3>
     </div>
   );
 };
