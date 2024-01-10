@@ -9,11 +9,15 @@ const Statistics = ({ all, average, good, text, value }) => {
   return (
     <table>
       <tbody>
-        <td>
-          {text} {value}
-        </td>
+        <tr>
+          <td>
+            {text} {value}
+          </td>
+        </tr>
         {all === 0 ? (
-          <h3>No feedback given</h3>
+          <tr>
+            <td>No feedback given</td>
+          </tr>
         ) : (
           good && (
             <>
