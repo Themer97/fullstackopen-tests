@@ -3,6 +3,16 @@ import { useState } from 'react';
 const Button = ({ handleClick, text }) => (
   <button onClick={handleClick}>{text}</button>
 );
+const Statistics = ({ all, average, good }) => {
+  const positive = (good / all) * 100;
+  return (
+    <>
+      <h3>all {all}</h3>
+      <h3>average {average}</h3>
+      <h3>positive {positive}%</h3>
+    </>
+  );
+};
 const App = () => {
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
@@ -43,9 +53,7 @@ const App = () => {
       <h3>good {good}</h3>
       <h3>neutral {neutral}</h3>
       <h3>bad {bad}</h3>
-      <h3>all {all}</h3>
-      <h3>average {average}</h3>
-      <h3>positive {(good / all) * 100}%</h3>
+      <Statistics all={all} average={average} good={good} />
     </div>
   );
 };
